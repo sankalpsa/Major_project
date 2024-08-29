@@ -1,84 +1,107 @@
-%% 
-% Author:- Sankalp B Chandavarkar
-% Date:- 26-07-2024
-
-% Here i will be writing code for modified Wake-up-radio
-% Find max of the input and updating it and repeating the cycle
-
-
-
-% no_of_nodes = input("Enter total number 0f nudoes\n");      %enter no.of nodes
-% batteryValues = zeros(1,no_of_nodes);                       %Initialising battery values to zero
-
-% for i = 1:no_of_nodes
-%     fprintf("Enter the values of node %d\n",i);
-%     batteryValues(1,i) = input(" ");
-% end
+% Author: Sankalp B Chandavarkar
+% Date: 26-07-2024
 
 clc;
-batteryValues = [12 , 30 , 15 , 9 , 6];
-no_of_nodes = length(batteryValues);
+batteryValues = [12, 30, 15, 9, 6];
 
-[MAX,Sorted_values] = get_max(batteryValues);             %Calling get_max function to store the respected values
-function [max ,sorted_values] = get_max(batteryValues)  %start of the function to find out 1st,2nd and 3rd max nnumbers in the array and also the sorted array
-    sorted_values = sort(batteryValues,'descend');
-    max = sorted_values(1:3);
-end                                                  %end of the get_max function
+% Get the max values and sorted values
+[MAX, ~] = get_max(batteryValues);
 
-
-
-% this function is used to get the Update time
-function Utime = UpdateTime()
-    Utime=round(rand(1),1);
+function [maxValues, sortedValues] = get_max(batteryValues)
+    sortedValues = sort(batteryValues, 'descend');
+    maxValues = sortedValues(1:3);
 end
-global k;
-global t;
-k=1;
-t=0;
 
-function [update,history,time] = batteryReduction(MAX,batteryValues)     %start of batteryReduction function
-    global k;
-    global t;
-    j = find(MAX(1) == batteryValues);                      %will find the index of node with high battery value
-    while batteryValues(j) >= MAX(2)        %|| batteryValues(j)<=MAX(3)      
-        %fuctiot(t) after t sec if will run
-        if(randi([0,1]))
-            batteryValues(j) = max(batteryValues(j) - 0.3,0);
-            for i=1:length(batteryValues)
-                if i == j
-                    continue
-                else 
-                    batteryValues(i)=max(batteryValues(i)-0.1,0);
+function Utime = update_time()
+    Utime = round(rand(1), 1);
+end
+
+function correctedValues = correction(batteryValues)
+    for i=1:length(batteryValues)
+        if batteryValues(i) < 0
+            batteryValues(i) = 0;
+        else
+            continue;
+        end
+    end
+    correctedValues = batteryValues;
+end
+
+global k t history update time;
+k = 1;
+t = 0;
+history = [];
+update = [];
+time = [];
+
+function [updatedValues, history, time] = battery_reduction(MAX, batteryValues)
+    global k t history update time;
+    
+    j = find(MAX(1) == batteryValues);
+    Uptime = t + update_time();
+    
+    while batteryValues(j) >= MAX(2) && any(batteryValues,"all")
+        if t == Uptime
+            history(k, :) = batteryValues;
+            batteryValues(j) = max(0,batteryValues(j) - 0.3);
+            
+            for i = 1:length(batteryValues)
+                if i ~= j
+                    batteryValues(i) = max(batteryValues(i) - 0.1, 0);
+
                 end
             end
-            update=batteryValues;
-            history(k,:)=batteryValues
-            time(k,1)=t+0.1;
-            t=time(k,1);
-            k=k+1;
+            
+            update = correction(batteryValues);
+            time(k, 1) = t + 0.1;
+            t = time(k, 1);
+            k = k + 1;
+
+            Uptime = t + update_time();
+            disp("New update time");
+            disp(Uptime);
         else
-            for i=1:length(batteryValues)
-                batteryValues(i)=max(batteryValues(i)-0.1,0);
+            history(k, :) = batteryValues;
+            
+            for i = 1:length(batteryValues)
+                batteryValues(i) = max(batteryValues(i) - 0.1, 0);
+
             end
-            update=batteryValues;
-            history(k,:)=batteryValues
-            time(k,1)=t+0.1;
-            t=time(k,1);
-            k=k+1;
+            
+            update = correction(batteryValues);
+            time(k, 1) = t + 0.1;
+            t = time(k, 1);
+            k = k + 1;
         end
+        % if all(batteryValues)
+        %     break;
+        % end
         
     end
-end      %end of batteryReduction function
+    
+    updatedValues = update;
+end
 
-% function wake_up_radio()
+while any(batteryValues > 0)
+    [MAX, ~] = get_max(batteryValues);
+    [update, history, time] = battery_reduction(MAX, batteryValues);
+    batteryValues = update;
+end
+
+% Plot the battery levels
+plot_battery_levels(time, history);
+
+function plot_battery_levels(time, history)
+    figure;
+    hold on;
     
+    for i = 1:size(history, 2)
+        plot(time, history(:, i), 'LineWidth', 1.5);
+    end
     
-    
-while any(batteryValues)              %start of while loop to reduce the battery
-        
-    MAX = get_max(batteryValues);
-        
-    [Update,history,time] = batteryReduction(MAX,batteryValues);
-    %
-    batteryValues = Update;
+    xlabel('Time');
+    ylabel('Battery Level');
+    title('Battery Level Over Time');
+    legend('Node 1', 'Node 2', 'Node 3', 'Node 4', 'Node 5');
+    grid on;
 end
