@@ -86,7 +86,7 @@ The project's results demonstrate a significant reduction in energy consumption 
 
 ### Protocol Workflow Diagram
 - ![Flowchart of Dynamic Leader Node Selection](screenshots/matlab_flow_diargam.jpg)
-- ![Data Transmission Process](iscreenshots/FLOW_CHART.jpg)
+- ![Data Transmission Process](screenshots/FLOW_CHART.jpg)
 
 ### MATLAB Simulation Screenshots
 - ![MATLAB Simulation - Network View](screenshots/matlab_network_view.png)
