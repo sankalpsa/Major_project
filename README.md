@@ -81,7 +81,9 @@ The project's results demonstrate a significant reduction in energy consumption 
 
 ### UML Diagrams
 - ![Use Case Diagram](screenshots/useCase_diagram.jpg)
+<!--
 - ![Class Diagram](images/class_diagram.png)
+-->
 - ![Sequence Diagram for Leader Selection](screenshots/sequential_diagram.jpg)
 
 ### Protocol Workflow Diagram
