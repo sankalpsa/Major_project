@@ -77,14 +77,10 @@ The project's results demonstrate a significant reduction in energy consumption 
 
 > **Below are placeholders for images, diagrams, and screenshots — please upload images and replace the links accordingly:**
 
-### Project Title Page/Logo
-![Project Logo](images/project_logo.png)
 
-### Certificate Stamp/Seal
-![Certificate Seal](images/certificate_seal.png)
 
 ### UML Diagrams
-- ![Use Case Diagram](images/use_case_diagram.png)
+- ![Use Case Diagram](screenshots/useCase_diagram.jpg)
 - ![Class Diagram](images/class_diagram.png)
 - ![Sequence Diagram for Leader Selection](images/sequence_leader_selection.png)
 
