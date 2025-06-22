@@ -82,27 +82,28 @@ The project's results demonstrate a significant reduction in energy consumption 
 ### UML Diagrams
 - ![Use Case Diagram](screenshots/useCase_diagram.jpg)
 - ![Class Diagram](images/class_diagram.png)
-- ![Sequence Diagram for Leader Selection](images/sequence_leader_selection.png)
+- ![Sequence Diagram for Leader Selection](screenshots/sequential_diagram.jpg)
 
 ### Protocol Workflow Diagram
-- ![Flowchart of Dynamic Leader Node Selection](images/protocol_workflow.png)
-- ![Data Transmission Process](images/data_transmission.png)
+- ![Flowchart of Dynamic Leader Node Selection](screenshots/matlab_flow_diargam.jpg)
+- ![Data Transmission Process](iscreenshots/FLOW_CHART.jpg)
 
 ### MATLAB Simulation Screenshots
-- ![MATLAB Simulation - Network View](images/matlab_network_view.png)
-- ![MATLAB Simulation - Battery Consumption Graph](images/matlab_battery_graph.png)
+- ![MATLAB Simulation - Network View](screenshots/matlab_network_view.png)
+- ![MATLAB Simulation - Battery Consumption Graph](screenshots/matlab_battery_graph.png)
 
 ### Web Application Screenshots
-- ![Web App - Dashboard View](images/web_dashboard.png)
-- ![Web App - Node Status Display](images/web_node_status.png)
+- ![Web App - Node Status Display](screenshots/web_simulation.jpg)
 
 ### Android Application Screenshots
-- ![Android App - Main Screen](images/android_main_screen.png)
-- ![Android App - Battery Monitoring](images/android_battery_monitor.png)
+- ![Android App - Battery Monitoring](screenshots/Android_simualtion_sink.jpg)
 
+<!-- 
 ### Comparative Results Graphs/Charts
 - ![Energy Consumption Comparison Graph](images/energy_comparison.png)
 - ![Network Lifetime Improvement Chart](images/network_lifetime_chart.png)
+-->
+
 
 ---
 
