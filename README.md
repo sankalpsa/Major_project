@@ -125,7 +125,7 @@ The success of this project is attributed to the guidance and support of:
 - **Dr. Niranjan N Chiplunkar**, Principal, NMAMIT, Nitte (for moral support)
 - **Dr. Radhakrishna**, Professor & Head, Dept. of Computer & Communication Engineering, NMAMIT, Nitte (for valuable suggestions and expert advice)
 - **Mr. Krishna Prasad D S**, Project Coordinator, Dept. of C&CE, NMAMIT, Nitte (for exceptional leadership, dedication, and support)
-- **Mr. Sandeep Kumar S**, Guide, Dept. of C&CE, NMAMIT, Nitte (for able guidance, encouragement, and assistance)
+- **Mrs. Jyothi Prasad S**, Guide, Dept. of C&CE, NMAMIT, Nitte (for able guidance, encouragement, and assistance)
 - Parents, faculty members, peers, and friends for their constant support and valuable suggestions.
 
 ---
